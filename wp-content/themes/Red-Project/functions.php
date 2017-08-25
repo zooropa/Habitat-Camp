@@ -257,33 +257,32 @@ function product() {
 }
 add_action( 'init', 'product', 0 );
 
-
-function wpb_widgets_init() {
+function contact_sidebar() {
+if (function_exists('register_sidebar')) {
+ 
+    // register_sidebar( array(
+    //     'name' => __( 'Main Sidebar', 'wpb' ),
+    //     'id' => 'sidebar-1',
+    //     'description' => __( 'The main sidebar appears on the right on each page except the front page template', 'wpb' ),
+    //     'before_widget' => '',
+    //     'after_widget' => '',
+    //     'before_title' => '<h3>',
+    //     'after_title' => '</h3>',
+    // ) );
  
     register_sidebar( array(
-        'name' => __( 'Main Sidebar', 'wpb' ),
-        'id' => 'sidebar-1',
-        'description' => __( 'The main sidebar appears on the right on each page except the front page template', 'wpb' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
-        'after_title' => '</h3>',
-    ) );
- 
-    register_sidebar( array(
-        'name' =>__( 'contact', 'wpb'),
+        'name' => 'contact',
         'id' => 'sidebar-2',
-        'description' => __( 'Appears on the static front page template', 'wpb' ),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title">',
+        //'description' => ( 'Appears on the static front page template', 'wpb' ),
+        'before_widget' => '<div class="footer_widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
         'after_title' => '</h3>',
     ) );
-    }
- 
-add_action( 'widgets_init', 'wpb_widgets_init' );
 
-
+}
+}
+add_action('widgets_init', 'contact_sidebar');
 
 /*function create_post_type() {
   register_post_type( 'products',

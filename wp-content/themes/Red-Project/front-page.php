@@ -79,7 +79,7 @@ if ( $query->have_posts() ) {
 
    <?php 
 
-        $populateTaxonomies =  get_terms(array(
+        $Terms =  get_terms(array(
         "taxonomy" => "taxonomy",
         'hide-empty'=> false,
     ));
@@ -96,7 +96,7 @@ if ( $query->have_posts() ) {
     <div class="taxonomy-container">
 
         <?php
-            foreach($populateTaxonomies as $term){ ?>
+            foreach($Terms as $term){ ?>
 
                 <div class="home-taxonomy">
 
@@ -120,6 +120,11 @@ if ( $query->have_posts() ) {
     </div>
 
     ?>
+
+    <div class="contact-low">
+    <img src=<?php echo get_template_directory_uri() . "/asets/dark-wood@2x.png";?>>
+    </div>
+
 
     
     
