@@ -1,9 +1,6 @@
+
+
 <?php
-/**
- * The template for displaying archive pages.
- *
- * @package RED_Starter_Theme
- */
 
 get_header(); ?>
 
@@ -17,27 +14,33 @@ get_header(); ?>
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 				?>
-			</header><!-- .page-header -->
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
-					get_template_part( 'template-parts/content' );
-				?>
+			</header>
 
-			<?php endwhile; ?>
-
-			<?php the_posts_navigation(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 		<?php endif; ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		
+		</main>
 
-<?php get_sidebar(); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			
+			<?php the_post_thumbnail() ?>
+			<?php the_title() ?>
+
+
+
+			 <div class="price"> <p> <?php echo  get_field('product_price'); ?> </p> </div>
+             
+		
+		
+			 
+    </div>
+
+		<?php endwhile; ?>
+
+	
+
+
 <?php get_footer(); ?>
